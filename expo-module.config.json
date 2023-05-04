@@ -1,0 +1,9 @@
+{
+  "platforms": ["ios", "android", "web"],
+  "ios": {
+    "modules": ["ReactNativeHashcashModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.hashcashold.ReactNativeHashcashModule"]
+  }
+}

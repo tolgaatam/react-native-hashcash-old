@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "react-native-hashcash-old": ["../src/index"],
+      "react-native-hashcash-old/*": ["../src/*"]
+    }
+  }
+}

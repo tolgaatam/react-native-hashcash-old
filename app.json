@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "react-native-hashcash-old",
+    "slug": "react-native-hashcash-old",
+    "version": "0.1.0",
+    "description": "React Native native module for the old architecture for implementing SHA-256 based Hashcash algorithm against brute-force",
+    "sdkVersion": "48.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "android": {
+      "package": "com.beynex.reactnativehashcashold"
+    }
+  }
+}
