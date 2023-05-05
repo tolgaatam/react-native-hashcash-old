@@ -21,7 +21,10 @@ console.log(result) // 1:19:230505:tolgaatam::cNGm6lxZkTwKLzhe:563295
 ```
 
 k must be an integer and the resource identifier must be a string.
-It is advisable to not allow colons in the resource identifier. It could make parsing the result difficult. URL-encoding it would be even safer
+
+With the current situation of smartphone chips, k=19 is the highest comfortable difficult multiplier to choose.
+
+It is advisable to not allow colons in the resource identifier. It could make parsing the resulting hashcash string difficult. URL-encoding the resource identifier would be even safer.
 
 ## Ceveats
 
