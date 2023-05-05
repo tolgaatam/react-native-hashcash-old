@@ -5,7 +5,7 @@ native expo-compatible module for the old architecture which implements SHA-256 
 ## Installation
 
 ```sh
-npm i https://github.com/tolgaatam/react-native-hashcash-old
+npm i github:tolgaatam/react-native-hashcash-old#v0.1.2
 ```
 
 ## Usage
@@ -27,8 +27,6 @@ With the current situation of smartphone chips, k=19 is the highest comfortable 
 It is advisable to not allow colons in the resource identifier. It could make parsing the resulting hashcash string difficult. URL-encoding the resource identifier would be even safer.
 
 ## Ceveats
-
-- This package has a `prepare` command which transpiles Typescript files into the `/build` directory. As Yarn currently does not support the `prepare` command, the `/build` folder which is the entry point of the package cannot be created. Usage of npm is recommended.
 
 - Only Hashcash version 1 is supported. Salt size is not configurable (16 chars fixed).
 
