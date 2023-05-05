@@ -2,6 +2,8 @@
 
 native expo-compatible module for the old architecture which implements SHA-256 based Hashcash algorithm against brute-force
 
+(See [react-native-hashcash](https://github.com/tolgaatam/react-native-hashcash) for the version for the new architecture)
+
 ## Installation
 
 ```sh
