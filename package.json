@@ -1,9 +1,10 @@
 {
   "name": "react-native-hashcash-old",
-  "version": "0.1.0",
-  "description": "React Native native module for the old architecture for implementing SHA-256 based Hashcash algorithm against brute-force",
+  "version": "0.1.2",
+  "description": "native expo-compatible module for the old architecture which implements SHA-256 based Hashcash algorithm against brute-force",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "react-native": "src/index.ts",
   "scripts": {
     "build": "expo-module build",
     "clean": "expo-module clean",
