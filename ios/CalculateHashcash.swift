@@ -2,6 +2,8 @@ import Foundation
 import CommonCrypto
 import Dispatch
 
+// commenting out in order to allow apps targeting below iOS 13 to be able to compile
+/*
 actor Counter {
     private var count: Int64 = 0
     func fetchIncrement(by: Int64) -> Int64 {
@@ -14,8 +16,9 @@ actor Counter {
         count = val
     }
 }
+*/
 
-// uses old-style Dispatch queues
+// uses old-style Dispatch queues for concurrency
 public func calculateHashcashQueue(k: UInt, identifier: String) -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyMMdd"
@@ -37,7 +40,7 @@ public func calculateHashcashQueue(k: UInt, identifier: String) -> String {
 
     let iterationPerThreadPerRound: Int64 = Int64(1) << (Int64(k) - Int64(5) - threadCountLog);
 
-    var lastCounterEnd: Int64 = 0
+    var lastCounterEnd: Int64 = 0 // counter to be shared by the threads
     var result = ""
     let semaphore = DispatchSemaphore(value: 1)
     
@@ -57,8 +60,7 @@ public func calculateHashcashQueue(k: UInt, identifier: String) -> String {
 
             let counterEnd = counterStart + iterationPerThreadPerRound
             
-            let range: ClosedRange<Int64> = counterStart..<counterEnd
-            for counter in range {
+            for counter in counterStart..<counterEnd {
                 let data = (challenge + String(counter)).data(using: String.Encoding.utf8)!
                 data.withUnsafeBytes{ (bytes: UnsafeRawBufferPointer) in
                     _ = CC_SHA256(bytes.baseAddress, CC_LONG(data.count), &hash)
@@ -83,6 +85,8 @@ public func calculateHashcashQueue(k: UInt, identifier: String) -> String {
 }
 
 // uses new async/await and actors
+// commenting out in order to allow apps targeting below iOS 13 to be able to compile
+/*
 public func calculateHashcashTask(k: UInt, identifier: String) async -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyMMdd"
@@ -120,8 +124,7 @@ public func calculateHashcashTask(k: UInt, identifier: String) async -> String {
 
                     let counterEnd = counterStart + iterationPerThreadPerRound
                     
-                    let range: ClosedRange<Int64> = counterStart..<counterEnd
-                    for counter in range {
+                    for counter in counterStart..<counterEnd {
                         let data = (challenge + String(counter)).data(using: String.Encoding.utf8)!
                         data.withUnsafeBytes{ (bytes: UnsafeRawBufferPointer) in
                             _ = CC_SHA256(bytes.baseAddress, CC_LONG(data.count), &hash)
@@ -157,6 +160,7 @@ public func calculateHashcashTask(k: UInt, identifier: String) async -> String {
     return "" // we will never hit this case
 
 }
+*/
 
 // sequential base implementation
 public func calculateHashcashSequential(k: UInt, identifier: String) -> String {
