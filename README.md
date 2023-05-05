@@ -28,7 +28,11 @@ It is advisable to not allow colons in the resource identifier. It could make pa
 
 ## Ceveats
 
-- Only Hashcash version 1 is supported. Salt size is not configurable (16 chars fixed).
+- Only the most recent Hashcash version 1 is supported. 
+
+- Date format only supports yyMMdd. 
+
+- Salt size is not configurable (16 chars fixed).
 
 ## License
 
